@@ -1,3 +1,36 @@
-#RUN mysql -u root -e "CREATE USER 'gelbooru'@'localhost' IDENTIFIED BY 'gelbooru';"
-#RUN mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'gelbooru'@'localhost';"
-#RUN mysql -u gelbooru -p"gelbooru" -e "create database gelbooru1"
+# docker-gelbooru-fork
+
+The easiest way to deploy a container with Gelbooru-fork! Now you can privately host all your prictures using all the power of the boorus: tag support, user support, made for huge libraries. DON'T USE THIS CONTAINER FOR PUBLICLY HOSTING BOORUS UNLESS YOU KNOW WHAT YOU'RE DOING, AS I CAN'T GUARANTEE SECURITY!
+
+## Fastest way to deploy
+
+```
+docker run -p 44555:80 --name=gelbooru -dP evertonstz/docker-gelbooru-fork
+```
+
+Runing the command above will deploy a container with the name "gelbooru". It's not yet ready to use, you'll need to set some user preferences on MySQL manually:
+
+Enter your container's bash:
+```
+docker exec -it lamp /bin/bash
+```
+Make a mysql user called "gelbooru" with password "gelbooru": *
+```
+mysql -u root -e "CREATE USER 'gelbooru'@'localhost' IDENTIFIED BY 'gelbooru';"
+```
+Give necessary permissions to the new user:
+```
+mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'gelbooru'@'localhost';"
+```
+Creteate the database "gelbooru1" with the user "gelbooru":
+```
+mysql -u gelbooru -p"gelbooru" -e "create database gelbooru1"
+```
+
+After that you'll need to go to the following link and signu with your ADMINISTRATOR info in your web browser: http://localhost:44555/admin/index.php
+
+Wait for the message, and go to Gelbooru main page to test things: http://localhost:44555
+You should now be able to whatever you want inside gelbooru, in my tests the first image that you upload will have a broken thumbnail, but for the rest of the images it'll work fine.
+
+
+*in case you decide to change the credentials, you'll need to also change the gelbooru config file to match, the file is located at /var/www/html/config.php
