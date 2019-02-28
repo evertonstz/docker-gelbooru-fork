@@ -1,0 +1,3 @@
+[submodule "gelbooru-fork"]
+	path = gelbooru-fork
+	url = https://github.com/zixaphir/gelbooru-fork
