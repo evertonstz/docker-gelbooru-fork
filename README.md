@@ -26,11 +26,44 @@ Creteate the database "gelbooru1" with the user "gelbooru":
 ```
 mysql -u gelbooru -p"gelbooru" -e "create database gelbooru1"
 ```
+Use "exit" to close the container's bash shell.
 
-After that you'll need to go to the following link and signu with your ADMINISTRATOR info in your web browser: http://localhost:44555/admin/index.php
+After that you'll need to go to the following link and signu with your ADMINISTRATOR info in your web browser: http://localhost:44555/install/index.php
 
 Wait for the message, and go to Gelbooru main page to test things: http://localhost:44555
 You should now be able to whatever you want inside gelbooru, in my tests the first image that you upload will have a broken thumbnail, but for the rest of the images it'll work fine.
 
+The administrator(s) page is located at: http://localhost:44555/admin/index.php
 
 *in case you decide to change the credentials, you'll need to also change the gelbooru config file to match, the file is located at /var/www/html/config.php
+
+
+## Paths inside the container you might want to know:
+
+You'll probably need to backup you images and database from time to time, the method is with you (I mounth them locally and backup using a software called borg :> ):
+image files:
+```
+/var/www/html/images
+```
+thumbnail files:
+```
+/var/www/html/thumbnails
+```
+mysql database files:
+```
+/var/lib/mysql
+```
+
+Those you'll only need a backup if made any customization, if your installation is default backingup these is redundant, as the Dockerfile can regenerate tem:
+apache2 config file:
+```
+/etc/apache2/sites-enabled/000-default.conf
+```
+gelbooru config file:
+```
+/var/www/html/config.php
+```
+php config file:
+```
+/etc/php/7.0/apache2/php.ini
+```
