@@ -41,6 +41,7 @@ The administrator(s) page is located at: http://localhost:44555/admin/index.php
 ## Paths inside the container you might want to know:
 
 You'll probably need to backup you images and database from time to time, the method is with you (I mounth them locally and backup using a software called borg :> ):
+<<<<<<< HEAD
 image files:
 ```
 /var/www/html/images
@@ -49,6 +50,12 @@ thumbnail files:
 ```
 /var/www/html/thumbnails
 ```
+=======
+images files:
+```
+/var/www/html/images
+```
+>>>>>>> 58f0c4799ab2ece942fa372d17d841974a720ad5
 mysql database files:
 ```
 /var/lib/mysql
@@ -66,4 +73,8 @@ gelbooru config file:
 php config file:
 ```
 /etc/php/7.0/apache2/php.ini
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 58f0c4799ab2ece942fa372d17d841974a720ad5
