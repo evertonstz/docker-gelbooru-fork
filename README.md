@@ -5,8 +5,11 @@ The easiest way to deploy a container with Gelbooru-fork! Now you can privately 
 ## Fastest way to deploy
 
 ```
-docker run -p 44555:80 --name=gelbooru -dP evertonstz/docker-gelbooru-fork
+git clone https://github.com/evertonstz/docker-gelbooru-fork.git
+
+docker run -p 44555:80 --name=gelbooru -dP docker-gelbooru-fork
 ```
+remove the cloned repository if you wish.
 
 Runing the command above will deploy a container with the name "gelbooru". It's not yet ready to use, you'll need to set some user preferences on MySQL manually:
 
