@@ -6,8 +6,12 @@ The easiest way to deploy a container with Gelbooru-fork! Now you can privately 
 
 ```
 git clone https://github.com/evertonstz/docker-gelbooru-fork.git
-
-docker run -p 44555:80 --name=gelbooru -dP docker-gelbooru-fork
+```
+```
+docker build -t gelbooru-img docker-gelbooru-fork```
+```
+```
+docker run -p 44555:80 --name=gelbooru -dP gelbooru-img
 ```
 remove the cloned repository if you wish.
 
@@ -15,7 +19,7 @@ Runing the command above will deploy a container with the name "gelbooru". It's 
 
 Enter your container's bash:
 ```
-docker exec -it lamp /bin/bash
+docker exec -it gelbooru /bin/bash
 ```
 Make a mysql user called "gelbooru" with password "gelbooru": *
 ```
